@@ -11,11 +11,9 @@ Nosso objetivo é criar um ambiente seguro e transparente onde investidores poss
 Se você está interessado em investir conosco, entre em contato pelo nosso site. Oferecemos diversas opções de investimento, com planos flexíveis e retorno competitivo.
 
 **Entre em contato com a gente para saber mais:**
-[https://guiadotrader.github.io/Guia-do-Trader/](https://guiadotrader.github.io/Guia-do-Trader/)
-
 ## Contato
 
-- Email: **contato@guiadotrader.com**
+- Email: **ainda_incerto**
 - Telefone: **(XX) XXXX-XXXX**
 
 ## Licença
