@@ -224,9 +224,6 @@
       document.getElementById("modal").style.display = "none";
     }
   </script>
-
-
-   
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   const ctx = document.getElementById('graficoRentabilidade');
@@ -291,69 +288,6 @@
         x: {
           ticks: { color: '#fff' },
           title: { display: true, text: 'Meses', color: '#fff' }
-        }
-      }
-    }
-  });
-</script>
-
-
-   
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const ctx = document.getElementById('graficoRentabilidade');
-  const meses = [...Array(13).keys()].map(m => m + "º mês");
-  const investBase = 10000;
-
-  function gerarSerie(taxa) {
-    let valores = [investBase];
-    for (let i = 1; i <= 12; i++) {
-      valores.push((valores[i-1] * (1 + taxa)).toFixed(2));
-    }
-    return valores;
-  }
-
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: meses,
-      datasets: [{
-        label: '5% ao mês',
-        data: gerarSerie(0.05),
-        borderColor: '#FFD700',
-        fill: false,
-      },
-      {
-        label: '10% ao mês',
-        data: gerarSerie(0.10),
-        borderColor: '#FFA500',
-        fill: false,
-      },
-      {
-        label: '15% ao mês',
-        data: gerarSerie(0.15),
-        borderColor: '#FF4500',
-        fill: false,
-      }]
-    },
-    options: {
-      plugins: {
-        legend: {
-          labels: {
-            color: 'white'
-          }
-        }
-      },
-      scales: {
-        y: {
-          ticks: {
-            color: 'white'
-          }
-        },
-        x: {
-          ticks: {
-            color: 'white'
-          }
         }
       }
     }
