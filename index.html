@@ -168,8 +168,8 @@
 <p>Investir conosco oferece uma excelente oportunidade de retorno, proporcional ao nível de risco envolvido. Oferecemos diferentes níveis de investimento com planos de participação flexíveis. Aporte inicial a partir de R$50,00. Os retornos podem variar entre 5% e 15% ao mês, dependendo da estratégia e das condições acordadas entre as partes. Entre em contato para discutir sua participação.</p>
 </section>
 <section>
-<h2>Simulação de Rentabilidade</h2>
-<canvas id="graficoRentabilidade"></canvas>
+  <h2 style="text-align:center; margin-bottom: 2rem; color: #F9DC5C;">Simulação de Rentabilidade (Juros Compostos)</h2>
+  <canvas id="graficoRentabilidade" style="max-width:1000px; margin:auto; display:block; background-color:#1A1A1A; padding:2rem; border-radius:12px;"></canvas>
 </section>
 <section>
   <h2>Perfis de Investimento</h2>
@@ -225,6 +225,80 @@
     }
   </script>
 
+
+   
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('graficoRentabilidade');
+  const meses = [...Array(13).keys()].map(i => i + "º mês");
+
+  function gerarSerie(inicial, taxa) {
+    let valores = [inicial];
+    for (let i = 1; i <= 12; i++) {
+      valores.push((valores[i - 1] * (1 + taxa)).toFixed(2));
+    }
+    return valores;
+  }
+
+  const datasets = [
+    {aporte: 50, cor: '#FFD700'},
+    {aporte: 500, cor: '#FFA500'},
+    {aporte: 1000, cor: '#FF4500'}
+  ].flatMap(({aporte, cor}) => [
+    {
+      label: `R$${aporte} - 5% a.m.`,
+      data: gerarSerie(aporte, 0.05),
+      borderColor: cor,
+      borderDash: [5, 5],
+      fill: false
+    },
+    {
+      label: `R$${aporte} - 10% a.m.`,
+      data: gerarSerie(aporte, 0.10),
+      borderColor: cor,
+      borderDash: [],
+      borderWidth: 2,
+      fill: false
+    },
+    {
+      label: `R$${aporte} - 15% a.m.`,
+      data: gerarSerie(aporte, 0.15),
+      borderColor: cor,
+      borderDash: [10, 5],
+      borderWidth: 2,
+      fill: false
+    }
+  ]);
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: meses,
+      datasets: datasets
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { color: '#fff' }
+        }
+      },
+      scales: {
+        y: {
+          ticks: { color: '#fff' },
+          title: { display: true, text: 'Valor (R$)', color: '#fff' }
+        },
+        x: {
+          ticks: { color: '#fff' },
+          title: { display: true, text: 'Meses', color: '#fff' }
+        }
+      }
+    }
+  });
+</script>
+
+
+   
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   const ctx = document.getElementById('graficoRentabilidade');
