@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guia do Trader</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0E0E0E;
+      color: #FFFFFF;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #101820;
+      color: #F9DC5C;
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+    }
+
+    header img {
+      max-width: 160px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #CCCCCC;
+      font-size: 1.2rem;
+    }
+
+    .cta-button {
+      background-color: #F9DC5C;
+      color: #101820;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #D1B900;
+    }
+
+    section {
+      background-color: #1A1A1A;
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #F9DC5C;
+    }
+
+    ul li {
+      color: #CCCCCC;
+      margin-bottom: 0.7rem;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background-color: #101820;
+      color: #CCCCCC;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal {
+      background: #1F1F1F;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      color: white;
+    }
+
+    .modal h3 {
+      color: #F9DC5C;
+      margin-bottom: 1rem;
+    }
+
+    .modal p {
+      color: #CCCCCC;
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal a {
+      background-color: #F9DC5C;
+      color: #101820;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .modal a:hover {
+      background-color: #D1B900;
+    }
+
+    .close-modal {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #AAAAAA;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<header>
+<img alt="Logo Guia do Trader" src="logo.png"/>
+<h1>Invista Conosco</h1>
+<p>Conectando você a oportunidades de investimento de alto impacto</p>
+<button class="cta-button" onclick="abrirModal()">Tenho Interesse</button>
+</header>
+<section>
+<h2>Sobre o Projeto</h2>
+<p>Somos uma empresa em expansão, com um modelo de negócios validado no mercado. Nosso objetivo é conectar investidores a oportunidades que geram valor e crescimento no setor de DAYTRADE em Dólar. Estamos prontos para acelerar com a ajuda de investidores estratégicos.</p>
+</section>
+<section>
+<h2>Por que Investir Conosco?</h2>
+<ul>
+<li>Modelo de negócio robusto e validado</li>
+<li>Transparência total com os investidores</li>
+<li>Estratégia clara de expansão e uso eficiente do capital</li>
+</ul>
+</section>
+<section id="proposta">
+<h2>Proposta de Investimento</h2>
+<p>Investir conosco oferece uma excelente oportunidade de retorno, proporcional ao nível de risco envolvido. Oferecemos diferentes níveis de investimento com planos de participação flexíveis. Aporte inicial a partir de R$50,00. Os retornos podem variar entre 5% e 15% ao mês, dependendo da estratégia e das condições acordadas entre as partes. Entre em contato para discutir sua participação.</p>
+</section>
+
+<section>
+<h2>Simulação de Rentabilidade</h2>
+<canvas id="graficoRentabilidade"></canvas>
+</section>
+<section>
+<h2>Perfis de Investimento</h2>
+<table style="width:100%; border-collapse: collapse; margin-top: 2rem;">
+<thead>
+<tr style="background-color: #333; color: #FFD700;">
+<th style="padding: 1rem;">Perfil</th>
+<th style="padding: 1rem;">Rendimento Mensal</th>
+<th style="padding: 1rem;">Risco Estimado</th>
+<th style="padding: 1rem;">Aporte Mínimo</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color: #222; color: #FFF59D;">
+<td style="padding: 1rem;">Conservador</td>
+<td>5%</td>
+<td>Baixo</td>
+<td>R$ 1.000</td>
+</tr>
+<tr style="background-color: #222; color: #FFF59D;">
+<td style="padding: 1rem;">Moderado</td>
+<td>10%</td>
+<td>Médio</td>
+<td>R$ 5.000</td>
+</tr>
+<tr style="background-color: #222; color: #FFF59D;">
+<td style="padding: 1rem;">Agressivo</td>
+<td>15%</td>
+<td>Alto</td>
+<td>R$ 10.000</td>
+</tr>
+</tbody>
+</table>
+</section>
+<footer>
+<p>© 2025 Guia do Trader. Todos os direitos reservados.</p>
+</footer>
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+<div class="modal">
+<h3>Entre em contato via WhatsApp</h3>
+<p>📞 (34) 99771-9871</p>
+<a href="https://wa.me/5534997719871" target="_blank">Falar agora</a>
+<div class="close-modal" onclick="fecharModal()">Fechar</div>
+</div>
+</div>
+<script>
+    function abrirModal() {
+      document.getElementById("modal").style.display = "flex";
+    }
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('graficoRentabilidade');
+  const meses = [...Array(13).keys()].map(m => m + "º mês");
+  const investBase = 10000;
+
+  function gerarSerie(taxa) {
+    let valores = [investBase];
+    for (let i = 1; i <= 12; i++) {
+      valores.push((valores[i-1] * (1 + taxa)).toFixed(2));
+    }
+    return valores;
+  }
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: meses,
+      datasets: [{
+        label: '5% ao mês',
+        data: gerarSerie(0.05),
+        borderColor: '#FFD700',
+        fill: false,
+      },
+      {
+        label: '10% ao mês',
+        data: gerarSerie(0.10),
+        borderColor: '#FFA500',
+        fill: false,
+      },
+      {
+        label: '15% ao mês',
+        data: gerarSerie(0.15),
+        borderColor: '#FF4500',
+        fill: false,
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        }
+      },
+      scales: {
+        y: {
+          ticks: {
+            color: 'white'
+          }
+        },
+        x: {
+          ticks: {
+            color: 'white'
+          }
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>
