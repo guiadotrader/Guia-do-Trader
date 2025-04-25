@@ -224,8 +224,50 @@
       document.getElementById("modal").style.display = "none";
     }
   </script>
-   
-<script>
+<section>
+    <h2>Simulação de Rentabilidade</h2>
+    <canvas id="graficoRentabilidade"></canvas>
+  </section>
+
+  <section>
+    <h2>Perfis de Investimento</h2>
+    <table>
+      <tr>
+        <th>Perfil</th>
+        <th>Rendimento Mensal</th>
+        <th>Risco Estimado</th>
+        <th>Aporte Mínimo</th>
+      </tr>
+      <tr>
+        <td>Conservador</td>
+        <td>5%</td>
+        <td>Baixo</td>
+        <td>R$ 1.000</td>
+      </tr>
+      <tr>
+        <td>Moderado</td>
+        <td>10%</td>
+        <td>Médio</td>
+        <td>R$ 5.000</td>
+      </tr>
+      <tr>
+        <td>Agressivo</td>
+        <td>15%</td>
+        <td>Alto</td>
+        <td>R$ 10.000</td>
+      </tr>
+    </table>
+  </section>
+
+  <div class="cta-container">
+    <button class="cta-button" onclick="window.open('https://wa.me/5534997719871', '_blank')">Tenho Interesse</button>
+  </div>
+
+  <footer>
+    © 2025 Guia do Trader. Todos os direitos reservados.
+  </footer>
+
+  <script>
     const ctx = document.getElementById('graficoRentabilidade');
     const meses = [...Array(13).keys()].map(m => m + "º mês");
     const investBase = 10000;
@@ -284,6 +326,5 @@
       }
     });
   </script>
-   
 </body>
 </html>
