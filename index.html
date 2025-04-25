@@ -97,5 +97,24 @@
     <p>&copy; 2025 Guia do Trader. Todos os direitos reservados.</p>
   </footer>
 
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h3>Entre em contato via WhatsApp</h3>
+      <p>📞 (34) 99771-9871</p>
+      <a href="https://wa.me/5534997719871" target="_blank">Falar agora</a>
+      <div class="close-modal" onclick="fecharModal()">Fechar</div>
+    </div>
+  </div>
+
+  <script>
+    function abrirModal() {
+      document.getElementById("modal").style.display = "flex";
+    }
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+  
 </body>
 </html>
