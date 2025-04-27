@@ -185,19 +185,19 @@
 <td>Conservador</td>
 <td>5%</td>
 <td>Baixo</td>
-<td>R$ 1.000</td>
+<td>R$ 50</td>
 </tr>
 <tr style="background-color: #222; color: #FFF59D;">
 <td>Moderado</td>
 <td>10%</td>
 <td>Médio</td>
-<td>R$ 5.000</td>
+<td>R$ 500</td>
 </tr>
 <tr style="background-color: #222; color: #FFF59D;">
 <td>Agressivo</td>
 <td>15%</td>
 <td>Alto</td>
-<td>R$ 10.000</td>
+<td>R$ 1.000</td>
 </tr>
 </tbody>
 </table>
@@ -225,7 +225,7 @@
 <script>
   const ctx = document.getElementById('graficoRentabilidade');
   const meses = [...Array(13).keys()].map(m => m + "º mês");
-  const investBase = 10000;
+  const investBase = 100;
   function gerarSerie(taxa) {
     let valores = [investBase];
     for (let i = 1; i <= 12; i++) {
