@@ -281,6 +281,35 @@ Embora o risco faça parte do nosso modelo de negócios, estamos confiantes na e
     }
   });
 </script>
+
+   // Exemplo simples em JavaScript usando ethers.js
+const { ethers } = require("ethers");
+
+// setup
+const provider = new ethers.providers.JsonRpcProvider("https://rpc-url");
+const wallet = new ethers.Wallet("SUA_PRIVATE_KEY", provider);
+
+// lista de holders e porcentagens (ideal extrair do contrato real ou planilha)
+const distribuicoes = [
+  { address: "0xabc123...", percent: 0.15 },
+  { address: "0xdef456...", percent: 0.10 },
+  { address: "0xghi789...", percent: 0.05 },
+];
+
+// função de pagamento
+async function distribuirLucro(valorTotal) {
+  for (let d of distribuicoes) {
+    const valor = ethers.utils.parseUnits((valorTotal * d.percent).toString(), 6); // USDC
+    const tx = await wallet.sendTransaction({
+      to: d.address,
+      value: valor,
+    });
+    console.log(`Enviado para ${d.address}: ${valor}`);
+  }
+}
+
+distribuirLucro(10000); // exemplo: distribuindo 10.000 USDC
+
 <header>
 <button class="cta-button" onclick="abrirModal()">Tenho Interesse</button>
 </header>
