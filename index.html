@@ -205,6 +205,91 @@ Embora o risco faça parte do nosso modelo de negócios, estamos confiantes na e
   <div style="max-width:500px; margin: 0 auto; text-align: center;">
     <input id="valorInicial" type="number" placeholder="Digite o valor (R$)" style="padding:10px; width:80%; margin-bottom:1rem; border-radius:8px; border:none;">
     <br>
+    <button onclick="simularInvestimento()" style="background:#5c5110; color:white; padding:10px 20px; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">Simular</button>
+  </div>
+  <canvas id="graficoSimulador" style="margin-top:2rem; background-color:#1A1A1A; padding:2rem; border-radius:12px;"></canvas>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  let grafico;
+
+  function gerarSerieSimulada(inicial, taxa) {
+    let valores = [inicial];
+    for (let i = 1; i <= 12; i++) {
+      valores.push((valores[i-1] * (1 + taxa)).toFixed(2));
+    }
+    return valores;
+  }
+
+  function simularInvestimento() {
+    const valor = parseFloat(document.getElementById('valorInicial').value);
+    const ctx = document.getElementById('graficoSimulador').getContext('2d');
+
+    if (isNaN(valor) || valor <= 0) {
+      alert("Digite um valor válido!");
+      return;
+    }
+
+    if (grafico) {
+      grafico.destroy();
+    }
+
+    grafico = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [...Array(13).keys()].map(i => i + "º mês"),
+        datasets: [
+          {
+            label: `5% ao mês`,
+            data: gerarSerieSimulada(valor, 0.05),
+            borderColor: '#FFD700',
+            fill: false,
+            tension: 0.2
+          },
+          {
+            label: `10% ao mês`,
+            data: gerarSerieSimulada(valor, 0.10),
+            borderColor: '#FFA500',
+            fill: false,
+            tension: 0.2
+          },
+          {
+            label: `15% ao mês`,
+            data: gerarSerieSimulada(valor, 0.15),
+            borderColor: '#FF4500',
+            fill: false,
+            tension: 0.2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: '#fff' }
+          }
+        },
+        scales: {
+          y: {
+            ticks: { color: '#fff' },
+            title: { display: true, text: 'Valor (R$)', color: '#fff' }
+          },
+          x: {
+            ticks: { color: '#fff' },
+            title: { display: true, text: 'Meses', color: '#fff' }
+          }
+        }
+      }
+    });
+  }
+</script>
+
+<!--
+<section>
+  <h2 style="text-align:center; margin-bottom: 2rem; color: #F9DC5C;">Simulação Personalizada</h2>
+  <div style="max-width:500px; margin: 0 auto; text-align: center;">
+    <input id="valorInicial" type="number" placeholder="Digite o valor (R$)" style="padding:10px; width:80%; margin-bottom:1rem; border-radius:8px; border:none;">
+    <br>
     <select id="taxaMensal" style="padding:10px; width:84%; margin-bottom:1rem; border-radius:8px; border:none;">
       <option value="0.05">5% ao mês</option>
       <option value="0.10">10% ao mês</option>
@@ -273,6 +358,7 @@ Embora o risco faça parte do nosso modelo de negócios, estamos confiantes na e
 <h2>Simulação de Rentabilidade</h2>
 <canvas id="graficoRentabilidade"></canvas>
 </section>
+-->
 <footer>
 <p>© 2025 Guia do Trader. Todos os direitos reservados.</p>
 </footer>
@@ -352,7 +438,7 @@ Embora o risco faça parte do nosso modelo de negócios, estamos confiantes na e
 </script>
 <header>
 ESTE SITE ESTÁ EM DESENVOLVIMENTO, AVALIE RETORNAR NAS PRÓXIMAS SEMANAS. HJ SÃO 27/04/25
-</header>header>
+</header>
 <header>
 <button class="cta-button" onclick="abrirModal()">Tenho Interesse</button>
 </header>
