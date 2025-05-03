@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guia do Trader</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <meta name="description" content="TROCAR TEXTO">
+  <meta name="robots" content="index, follow">
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0E0E0E;
+      color: #FFFFFF;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #101820;
+      color: #F9DC5C;
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+    }
+    header img {
+      max-width: 160px;
+      margin-bottom: 1rem;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #F9DC5C;
+    }
+    p, ul li {
+      color: #CCCCCC;
+      font-size: 1.2rem;
+    }
+    .cta-button {
+      background-color: #F9DC5C;
+      color: #101820;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover { background-color: #D1B900; }
+    section {
+      background-color: #1A1A1A;
+      padding: 3rem 2rem;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      max-width: 1000px;
+      width: 90%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 1rem;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+      color: #FFD700;
+    }
+    td {
+      background-color: #222;
+      color: #FFF59D;
+    }
+    footer {
+      background-color: #101820;
+      color: #CCCCCC;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal {
+      background: #1F1F1F;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      color: white;
+    }
+    .modal h3 {
+      color: #F9DC5C;
+      margin-bottom: 1rem;
+    }
+    .modal p {
+      color: #CCCCCC;
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+    .modal a {
+      background-color: #F9DC5C;
+      color: #101820;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .modal a:hover { background-color: #D1B900; }
+    .close-modal {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #AAAAAA;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      p, ul li { font-size: 1rem; }
+      .cta-button { font-size: 1rem; padding: 0.8rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Logo Guia do Trader"/>
+  <h1>Invista Nessa Ideia</h1>
+  <p>TROCAR TEXTO</p>
+  <button class="cta-button" onclick="abrirModal()">Tenho Interesse</button>
+</header>
+
+<section>
+  <h2>Sobre o Projeto</h2>
+  <p>Somos um projeto em expansão, com um modelo operacional que busca oportunidades no mercado financeiro por meio de operações de trade em dólar. Nosso foco está na aplicação de uma metodologia própria, baseada em fundamentos matemáticos, voltada à gestão de risco e à identificação de movimentos estratégicos do mercado.
+
+Entendemos que, apesar de todos os esforços técnicos e tecnológicos, o ambiente de trade envolve riscos relevantes e não há garantias de retorno.
+</p>
+  <p>Nossa metodologia se baseia em um sistema matemático desenvolvido para evitar o loss.</p>
+</section>
+<section>
+  <h2>Por que Acompanhar Nosso Projeto?</h2>
+  <ul>
+    <li>- Metodologia estruturada com base em experiência prática</li>
+    <li>- Compromisso com a transparência e comunicação direta</li>
+    <li>- Uso responsável de capital, voltado à escala e testes de estratégia</li>
+  </ul>
+</section>
+
+<section id="proposta">
+  <h2>Convite à Colaboração:</h2>
+  <p>Buscamos parceiros que estejam alinhados com nossa visão de construir um modelo operacional robusto em um mercado volátil. Qualquer eventual aporte de capital deve ser compreendido como uma forma de colaboração com riscos inerentes ao mercado financeiro.
+</p>
+  <p>Nosso objetivo é validar e aprimorar nossa abordagem continuamente. Ressaltamos que não realizamos oferta pública de investimento e que este material não representa promessa de retorno financeiro.
+</p>
+</section>
+
+<section>
+  <h2>Perfis de Risco</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Perfil</th>
+        <th>Rendimento Mensal</th>
+        <th>Risco Estimado</th>
+        <th>Aporte Mínimo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Conservador</td><td>5% a 15%</td><td>Alto</td><td>R$ 50</td></tr>
+      <tr><td>Médio</td><td>5% a 15%</td><td>Alto</td><td>R$ 500</td></tr>
+      <tr><td>Agressivo</td><td>5% a 15%</td><td>Alto</td><td>R$ 1.000</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2 style="text-align:center;">Simulação Personalizada</h2>
+  <div style="max-width:500px; margin: 0 auto; text-align: center;">
+    <input id="valorInicial" type="number" placeholder="Digite o valor (R$)" 
+           style="padding:10px; width:80%; margin-bottom:1rem; border-radius:8px; border:none;"
+           onkeypress="if(event.key === 'Enter') simularInvestimento()">
+    <br>
+    <button onclick="simularInvestimento()" 
+            style="background:#5c5110; color:white; padding:10px 20px; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">
+      Simular
+    </button>
+  </div>
+  <canvas id="graficoSimulador" 
+          style="margin-top:2rem; background-color:#1A1A1A; padding:2rem; border-radius:12px;"></canvas>
+</section>
+
+<section style="background-color:#1A1A1A; padding:3rem; margin-top:2rem; border-radius:12px;">
+  <h2 style="text-align:center;">Perguntas Frequentes (FAQ)</h2>
+  <div style="max-width:800px; margin:auto;">
+    <h3>1. Quais os riscos envolvidos?</h3>
+    <p>Participar deste projeto envolve exposição a operações de altíssima volatilidade. Não há garantias de preservação de capital, e perdas totais são possíveis. A participação é recomendada apenas para quem compreende e aceita esse nível de risco.
+</p>
+
+    <h3>2. Existe garantia de rentabilidade?</h3>
+    <p>Não. Este projeto não oferece promessa, expectativa ou obrigação de rentabilidade. Os resultados podem variar significativamente, inclusive com semanas de prejuízo.
+</p>
+
+    <h3>3. Posso sacar meu dinheiro a qualquer momento?</h3>
+    <p>Os valores eventualmente direcionados ao projeto seguem ciclos operacionais próprios. A possibilidade e o prazo de resgates são definidos caso a caso, no momento da entrada, conforme disponibilidade de caixa e estratégia vigente.</p>
+
+    <h3>4. Qual o valor mínimo para investir?</h3>
+    <p>A partir de R$ 50,00, podendo variar conforme a fase do projeto ou perfil do participante. Consulte-nos para mais informações atualizadas.</p>
+  </div>
+</section>
+
+<section style="text-align:center; margin-top:4rem; margin-bottom:2rem; color:#D1B900;">
+  <p>Nosso site está em desenvolvimento. Em breve novidades!</p>
+</section>
+
+<footer>
+  <p>© 2025 Guia do Trader. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h3>Entre em contato via WhatsApp</h3>
+    <p>📞 (34) 9xxx... Obrigado pela visita, ainda estamos em processo de criação.</p>
+    <a href="https://wa.me/55349xxx" target="_blank">Falar agora</a>
+    <div class="close-modal" onclick="fecharModal()">Fechar</div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  let grafico;
+  function gerarSerieSimulada(inicial, taxa) {
+    let valores = [inicial];
+    for (let i = 1; i <= 12; i++) {
+      valores.push((valores[i-1] * (1 + taxa)).toFixed(2));
+    }
+    return valores;
+  }
+  function simularInvestimento() {
+    const valor = parseFloat(document.getElementById('valorInicial').value);
+    const ctx = document.getElementById('graficoSimulador').getContext('2d');
+    if (isNaN(valor) || valor <= 0) {
+      alert("Digite um valor válido!");
+      return;
+    }
+    if (grafico) grafico.destroy();
+    grafico = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [...Array(13).keys()].map(i => i + "º mês"),
+        datasets: [
+          { label: `5% ao mês`, data: gerarSerieSimulada(valor, 0.05), borderColor: '#FFD700', fill: false, tension: 0.2 },
+          { label: `10% ao mês`, data: gerarSerieSimulada(valor, 0.10), borderColor: '#FFA500', fill: false, tension: 0.2 },
+          { label: `15% ao mês`, data: gerarSerieSimulada(valor, 0.15), borderColor: '#FF4500', fill: false, tension: 0.2 }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { labels: { color: '#fff' } }
+        },
+        scales: {
+          y: {
+            ticks: { color: '#fff' },
+            title: { display: true, text: 'Valor (R$)', color: '#fff' }
+          },
+          x: {
+            ticks: { color: '#fff' },
+            title: { display: true, text: 'Meses', color: '#fff' }
+          }
+        }
+      }
+    });
+  }
+
+  function abrirModal() {
+    document.getElementById("modal").style.display = "flex";
+  }
+  function fecharModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+</script>
+</body>
+</html>
